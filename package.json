@@ -1,0 +1,34 @@
+{
+  "name": "strapi-plugin-vercel-deploy",
+  "version": "1.0.0",
+  "description": "Strapi v4 plugin to trigger and monitor a deployment on Vercel",
+  "repository": "https://github.com/gianlucaparadise/strapi-plugin-vercel-deploy.git",
+  "author": "gianlucaparadise <gianlucaparadise@gmail.com>",
+  "license": "MIT",
+  "strapi": {
+    "name": "Vercel Deploy",
+    "description": "Plugin to trigger the deploy of a website hosted on Vercel.",
+    "kind": "plugin"
+  },
+  "maintainers": [
+    {
+      "name": "Gianluca Paradiso",
+      "email": "gianlucaparadise@gmail.com"
+    }
+  ],
+  "engines": {
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "@strapi/strapi": "4.1.5",
+    "axios": "^0.26.1"
+  },
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "plugin",
+    "vercel",
+    "vercel-deploy"
+  ]
+}
