@@ -13,7 +13,7 @@ export default {
       icon: PluginIcon,
       intlLabel: {
         id: `${pluginId}.plugin.name`,
-        defaultMessage: name,
+        defaultMessage: "Vercel Deploy",
       },
       Component: async () => {
         const component = await import(
