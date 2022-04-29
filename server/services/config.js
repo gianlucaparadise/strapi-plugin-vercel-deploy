@@ -13,7 +13,7 @@ module.exports = ({ strapi }) => ({
    */
   getConfig() {
     return {
-      data: buildConfig(),
+      data: buildConfig(strapi),
     };
   },
 });

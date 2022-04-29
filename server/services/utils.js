@@ -1,5 +1,7 @@
 "use strict";
 
+const getPluginConfig = require("../helpers/pluginConfig");
+
 /**
  * @typedef {import('../../types/typedefs').PluginConfigMap} PluginConfigMap
  * @typedef {import('../../types/typedefs').FeatureAvailability} FeatureAvailability
@@ -9,11 +11,13 @@
  * Build config map object
  * @returns {PluginConfigMap}
  */
-const buildConfig = () => {
+const buildConfig = (strapi) => {
+  const pluginConfig = getPluginConfig(strapi);
+
   return {
-    deployHook: process.env.VERCEL_DEPLOY_PLUGIN_HOOK,
-    apiToken: process.env.VERCEL_DEPLOY_PLUGIN_API_TOKEN,
-    appFilter: process.env.VERCEL_DEPLOY_PLUGIN_APP_FILTER,
+    deployHook: pluginConfig("deployHook"),
+    apiToken: pluginConfig("apiToken"),
+    appFilter: pluginConfig("appFilter"),
   };
 };
 

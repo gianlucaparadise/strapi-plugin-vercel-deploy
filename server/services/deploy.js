@@ -16,7 +16,7 @@ module.exports = ({ strapi }) => ({
    */
   async runDeploy() {
     try {
-      const config = buildConfig();
+      const config = buildConfig(strapi);
       if (!config || !config.deployHook) {
         throw "missing configuration: deployHook";
       }
@@ -49,7 +49,7 @@ module.exports = ({ strapi }) => ({
    */
   async getDeployments() {
     try {
-      const config = buildConfig();
+      const config = buildConfig(strapi);
       if (!config || !config.apiToken) {
         throw "missing configuration: deployHook";
       }
@@ -88,7 +88,7 @@ module.exports = ({ strapi }) => ({
    */
   deployAvailability() {
     try {
-      const config = buildConfig();
+      const config = buildConfig(strapi);
       const runDeployAvailability = getFeatureAvailability(
         config,
         "deployHook"
