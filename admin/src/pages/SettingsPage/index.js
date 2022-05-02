@@ -90,7 +90,7 @@ const SettingsContainer = () => {
           <FieldLabel required>Deploy Hook</FieldLabel>
           <FieldInput
             type="text"
-            placeholder="You need to set the VERCEL_DEPLOY_PLUGIN_HOOK environment variable"
+            placeholder="You need to set `deployHook` in plugin config"
             value={deployHook}
             disabled={true}
           />
@@ -109,7 +109,7 @@ const SettingsContainer = () => {
           <FieldLabel required>API token</FieldLabel>
           <FieldInput
             type="text"
-            placeholder="You need to set the VERCEL_DEPLOY_PLUGIN_API_TOKEN environment variable"
+            placeholder="You need to set `apiToken` in plugin config"
             value={apiToken}
             disabled={true}
           />
@@ -128,7 +128,7 @@ const SettingsContainer = () => {
           <FieldLabel>App Name</FieldLabel>
           <FieldInput
             type="text"
-            placeholder="You need to set the VERCEL_DEPLOY_PLUGIN_APP_FILTER environment variable"
+            placeholder="You need to set `appFilter` in plugin config"
             value={appFilter}
             disabled={true}
           />

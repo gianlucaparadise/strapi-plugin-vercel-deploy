@@ -1,5 +1,7 @@
 # Vercel Deploy
 
+[![npm version](https://badge.fury.io/js/strapi-plugin-vercel-deploy.svg)](https://badge.fury.io/js/strapi-plugin-vercel-deploy)
+
 Strapi v4 plugin to trigger and monitor a deployment on Vercel.
 
 ![Vercel Deploy Logo](./assets/strapi-vercel-deploy-logo.png "Vercel Deploy Logo")
