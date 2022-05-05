@@ -17,6 +17,8 @@ import { Flex } from "@strapi/design-system/Flex";
 
 import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
 import { getConfig } from "../../utils/api";
+import FormattedMessage from "../../components/FormattedMessage";
+import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('../../../../types/typedefs').PluginConfigMap} PluginConfigMap
@@ -38,6 +40,16 @@ const BoxField = ({ fieldName, children }) => {
 };
 
 const SettingsContainer = () => {
+  const deployHookPlaceholder = useFormattedMessage(
+    "settings-page.deploy-hook.placeholder"
+  );
+  const apiTokenPlaceholder = useFormattedMessage(
+    "settings-page.api-token.placeholder"
+  );
+  const appNamePlaceholder = useFormattedMessage(
+    "settings-page.app-name.placeholder"
+  );
+
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -70,7 +82,9 @@ const SettingsContainer = () => {
   if (isLoading) {
     return (
       <Flex justifyContent="center">
-        <Loader>Loading settings...</Loader>
+        <Loader>
+          <FormattedMessage labelId="settings-page.settings-container.loader" />
+        </Loader>
       </Flex>
     );
   }
@@ -87,18 +101,20 @@ const SettingsContainer = () => {
     <>
       <BoxField fieldName="vercel-deploy-hook">
         <Stack>
-          <FieldLabel required>Deploy Hook</FieldLabel>
+          <FieldLabel required>
+            <FormattedMessage labelId="settings-page.deploy-hook.label" />
+          </FieldLabel>
           <FieldInput
             type="text"
-            placeholder="You need to set `deployHook` in plugin config"
+            placeholder={deployHookPlaceholder}
             value={deployHook}
             disabled={true}
           />
           <Box>
             <Typography variant="pi">
-              {"Learn more about "}
+              <FormattedMessage labelId="settings-page.deploy-hook.learn-more-intro" />
               <Link isExternal href="https://vercel.com/docs/git/deploy-hooks">
-                Vercel Deploy Hooks
+                <FormattedMessage labelId="settings-page.deploy-hook.learn-more-link-text" />
               </Link>
             </Typography>
           </Box>
@@ -106,18 +122,20 @@ const SettingsContainer = () => {
       </BoxField>
       <BoxField fieldName="vercel-deploy-api-token">
         <Stack>
-          <FieldLabel required>API token</FieldLabel>
+          <FieldLabel required>
+            <FormattedMessage labelId="settings-page.api-token.label" />
+          </FieldLabel>
           <FieldInput
             type="text"
-            placeholder="You need to set `apiToken` in plugin config"
+            placeholder={apiTokenPlaceholder}
             value={apiToken}
             disabled={true}
           />
           <Box>
             <Typography variant="pi">
-              {"Access tokens can be created and managed inside your "}
+              <FormattedMessage labelId="settings-page.api-token.learn-more-intro" />
               <Link isExternal href="https://vercel.com/account/tokens">
-                account settings
+                <FormattedMessage labelId="settings-page.api-token.learn-more-link-text" />
               </Link>
             </Typography>
           </Box>
@@ -125,20 +143,22 @@ const SettingsContainer = () => {
       </BoxField>
       <BoxField fieldName="vercel-deploy-app-name">
         <Stack>
-          <FieldLabel>App Name</FieldLabel>
+          <FieldLabel>
+            <FormattedMessage labelId="settings-page.app-name.label" />
+          </FieldLabel>
           <FieldInput
             type="text"
-            placeholder="You need to set `appFilter` in plugin config"
+            placeholder={appNamePlaceholder}
             value={appFilter}
             disabled={true}
           />
           <Box>
             <Typography variant="pi">
-              {"Set the name of your "}
+              <FormattedMessage labelId="settings-page.app-name.learn-more-intro" />
               <Link isExternal href="https://vercel.com/dashboard">
-                Vercel App
+                <FormattedMessage labelId="settings-page.app-name.learn-more-link-text" />
               </Link>
-              {" to see only the deployments you need"}
+              <FormattedMessage labelId="settings-page.app-name.learn-more-outro" />
             </Typography>
           </Box>
         </Stack>
@@ -148,12 +168,15 @@ const SettingsContainer = () => {
 };
 
 const SettingsPage = () => {
+  const headerTitle = useFormattedMessage("settings-page.header.title");
+  const headerSubtitle = useFormattedMessage("settings-page.header.subtitle");
+
   return (
     <>
       <Box background="neutral100">
         <BaseHeaderLayout
-          title="Configuration"
-          subtitle="Configure your Vercel Deploy plugin"
+          title={headerTitle}
+          subtitle={headerSubtitle}
           as="h2"
         />
       </Box>

@@ -5,5 +5,22 @@
   "home-page.deploy-button.subtitle": "Scatena un rilascio su Vercel usando il webhook che hai configurato",
   "home-page.deployments.title": "Rilasci",
   "home-page.deployments.subtitle": "Ultimi rilasci sul tuo profilo Vercel",
-  "home-page.deployments.loader": "Recupero dei rilasci"
+  "home-page.deployments.loader": "Recupero dei rilasci",
+
+  "settings-page.header.title": "Configurazione",
+  "settings-page.header.subtitle": "Configura il tuo plugin Vercel Deploy",
+  "settings-page.settings-container.loader": "Caricamento delle impostazioni...",
+  "settings-page.deploy-hook.label": "Deploy Hook",
+  "settings-page.deploy-hook.placeholder": "Hai bisogno di impostare `deployHook` nelle configurazioni del plugin",
+  "settings-page.deploy-hook.learn-more-intro": "Scopri di più sui ",
+  "settings-page.deploy-hook.learn-more-link-text": "Vercel Deploy Hooks",
+  "settings-page.api-token.label": "API token",
+  "settings-page.api-token.placeholder": "Hai bisogno di impostare `apiToken` nelle configurazioni del plugin",
+  "settings-page.api-token.learn-more-intro": "I token di accesso possono essere creati e gestiti nelle ",
+  "settings-page.api-token.learn-more-link-text": "impostationi del tuo profilo",
+  "settings-page.app-name.label": "Nome dell'App",
+  "settings-page.app-name.placeholder": "Hai bisogno di impostare `appFilter` nelle configurazioni del plugin",
+  "settings-page.app-name.learn-more-intro": "Imposta il nome della tua ",
+  "settings-page.app-name.learn-more-link-text": "App Vercel",
+  "settings-page.app-name.learn-more-outro": " per vedere solo i rilasci di cui hai bisogno"
 }
