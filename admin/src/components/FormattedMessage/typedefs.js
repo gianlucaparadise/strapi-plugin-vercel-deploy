@@ -1,16 +1,11 @@
 /**
+ * Translation Key
+ * @typedef {import('../../types/typedefs').TranslationKey} TranslationKey
+ */
+
+/**
  * Text variant
  * @typedef {"alpha"|"beta"|"delta"|"epsilon"|"omega"|"pi"|"sigma"} TextVariant
- */
-
-/**
- * Defined Translations
- * @typedef {import('../../translations/en.json')} Translations
- */
-
-/**
- * Translation Key
- * @typedef {keyof Translations} TranslationKey
  */
 
 /**

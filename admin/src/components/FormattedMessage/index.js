@@ -5,11 +5,10 @@
  */
 
 import React from "react";
-import { useIntl } from "react-intl";
 
 import { Typography } from "@strapi/design-system/Typography";
 
-import getTrad from "../../utils/getTrad";
+import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
@@ -21,8 +20,7 @@ import getTrad from "../../utils/getTrad";
  * @returns {JSX.Element}
  */
 const FormattedMessage = ({ labelId, variant, textColor }) => {
-  const { formatMessage } = useIntl();
-  const label = formatMessage({ id: getTrad(labelId) });
+  const label = useFormattedMessage(labelId);
 
   if (variant || textColor) {
     return (
