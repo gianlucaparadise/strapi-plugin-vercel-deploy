@@ -1,0 +1,9 @@
+{
+  "home-page.header.title": "Rilascia su Vercel",
+  "home-page.header.subtitle": "Rilascia il tuo sito ospitato su Vercel",
+  "home-page.deploy-button.title": "Rilascio manuale",
+  "home-page.deploy-button.subtitle": "Scatena un rilascio su Vercel usando il webhook che hai configurato",
+  "home-page.deployments.title": "Rilasci",
+  "home-page.deployments.subtitle": "Ultimi rilasci sul tuo profilo Vercel",
+  "home-page.deployments.loader": "Recupero dei rilasci"
+}

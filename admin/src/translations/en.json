@@ -1,1 +1,9 @@
-{}
+{
+  "home-page.header.title": "Vercel Deploy",
+  "home-page.header.subtitle": "Deploy your website hosted on Vercel",
+  "home-page.deploy-button.title": "Manual deploy",
+  "home-page.deploy-button.subtitle": "Start a deployment on Vercel using the webhook you configured",
+  "home-page.deployments.title": "Deployments",
+  "home-page.deployments.subtitle": "Latest deployments on you Vercel account",
+  "home-page.deployments.loader": "Fetching deployments"
+}
