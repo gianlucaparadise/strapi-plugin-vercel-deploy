@@ -8,6 +8,8 @@ import React from "react";
 import { Link } from "@strapi/design-system/Link";
 import { Typography } from "@strapi/design-system/Typography";
 
+import FormattedMessage from "../FormattedMessage";
+
 /**
  * @typedef {import('./typedefs').Props} Props
  * @typedef {import("./typedefs").ErrorStateType} ErrorStateType
@@ -20,25 +22,31 @@ import { Typography } from "@strapi/design-system/Typography";
 const getMessage = (type) => {
   switch (type) {
     case "MISSING_CONFIG_OBJECT":
-      return "Unexpected config error: the config object is empty";
+      return (
+        <FormattedMessage labelId="deploy-error-message.missing-config-object" />
+      );
 
     case "MISSING_CONFIG_VARIABLE":
       return (
         <>
-          Config error: You did not set the Vercel Deploy Hook. Go to{" "}
-          <Link to="/settings/vercel-deploy">Plugin settings</Link> for more
-          info
+          <FormattedMessage labelId="deploy-error-message.missing-config-variable.intro" />
+          <Link to="/settings/vercel-deploy">
+            <FormattedMessage labelId="deploy-error-message.missing-config-variable.link-text" />
+          </Link>
+          <FormattedMessage labelId="deploy-error-message.missing-config-variable.outro" />
         </>
       );
 
     case "ERROR_AVAILABILITY":
-      return "Unexpected availability error: please retry";
+      return (
+        <FormattedMessage labelId="deploy-error-message.error-availability" />
+      );
 
     case "ERROR_DEPLOY":
-      return "Unexpected deploy error: please retry";
+      return <FormattedMessage labelId="deploy-error-message.error-deploy" />;
 
     default:
-      return "Unexpected error";
+      return <FormattedMessage labelId="deploy-error-message.default" />;
   }
 };
 

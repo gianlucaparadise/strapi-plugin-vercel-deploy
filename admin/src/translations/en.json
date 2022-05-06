@@ -22,5 +22,16 @@
   "settings-page.app-name.placeholder": "You need to set `appFilter` in plugin config",
   "settings-page.app-name.learn-more-intro": "Set the name of your ",
   "settings-page.app-name.learn-more-link-text": "Vercel App",
-  "settings-page.app-name.learn-more-outro": " to see only the deployments you need"
+  "settings-page.app-name.learn-more-outro": " to see only the deployments you need",
+
+  "deploy-button.label": "Deploy",
+  "deploy-button.loader": "Deploying...",
+
+  "deploy-error-message.missing-config-object": "Unexpected config error: the config object is empty",
+  "deploy-error-message.missing-config-variable.intro": "Config error: You did not set the Vercel Deploy Hook. Go to ",
+  "deploy-error-message.missing-config-variable.link-text": "Plugin settings",
+  "deploy-error-message.missing-config-variable.outro": " for more info",
+  "deploy-error-message.error-availability": "Unexpected availability error: please retry",
+  "deploy-error-message.error-deploy": "Unexpected deploy error: please retry",
+  "deploy-error-message.default": "Unexpected error"
 }

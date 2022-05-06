@@ -12,6 +12,7 @@ import { Loader } from "@strapi/design-system/Loader";
 import SymmetricBox from "../../components/SymmetricBox";
 import DeployErrorMessage from "../../components/DeployErrorMessage";
 import { runDeploy } from "../../utils/api";
+import FormattedMessage from "../FormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
@@ -76,12 +77,14 @@ const DeployButton = ({
     <>
       <SymmetricBox paddingHorizontal={4}>
         <Button onClick={runDeployHandler} disabled={!canDeploy || isLoading}>
-          Deploy
+          <FormattedMessage labelId="deploy-button.label" />
         </Button>
       </SymmetricBox>
       {isLoading && (
         <SymmetricBox paddingHorizontal={4}>
-          <Loader small>Deploying...</Loader>
+          <Loader small>
+            <FormattedMessage labelId="deploy-button.loader" />
+          </Loader>
         </SymmetricBox>
       )}
       {!hasDeployedSuccessfully && (
