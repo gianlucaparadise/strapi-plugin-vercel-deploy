@@ -11,6 +11,7 @@ import { Flex } from "@strapi/design-system/Flex";
 import { useDeployments } from "../../hooks/useDeployments";
 import DeploymentsEmptyState from "../DeploymentsEmptyState";
 import DeploymentsList from "../DeploymentsList";
+import FormattedMessage from "../FormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Deployment} Deployment
@@ -31,7 +32,9 @@ const DeploymentsContainer = ({ usePolling, onDeploymentsFetched }) => {
   if (isLoadingDeployments && hasEmptyDeployments) {
     return (
       <Flex justifyContent="center">
-        <Loader>Loading content...</Loader>
+        <Loader>
+          <FormattedMessage labelId="deployments-container.loader" />
+        </Loader>
       </Flex>
     );
   }

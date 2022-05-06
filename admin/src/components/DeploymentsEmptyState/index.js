@@ -14,6 +14,8 @@ import EmptyPermissions from "@strapi/icons/EmptyPermissions";
 import ExclamationMarkCircle from "@strapi/icons/ExclamationMarkCircle";
 import EmotionUnhappy from "@strapi/icons/EmotionUnhappy";
 
+import FormattedMessage from "../FormattedMessage";
+
 /**
  * @typedef {import('./typedefs').Props} Props
  * @typedef {import('./typedefs').EmptyStateType} DeploymentsAvailability
@@ -53,31 +55,43 @@ const getIcon = (listDeployAvailability) => {
 const getText = (listDeployAvailability) => {
   switch (listDeployAvailability) {
     case "MISSING_CONFIG_OBJECT":
-      return "The config object is empty and this is unexpected";
+      return (
+        <FormattedMessage labelId="deployments-empty-state.missing-config-object" />
+      );
 
     case "MISSING_CONFIG_VARIABLE":
       return (
         <>
-          You did not set the Vercel API Token. Go to{" "}
-          <Link to="/settings/vercel-deploy">Plugin settings</Link> for more
-          info
+          <FormattedMessage labelId="deployments-empty-state.missing-config-variable.intro" />
+          <Link to="/settings/vercel-deploy">
+            <FormattedMessage labelId="deployments-empty-state.missing-config-variable.link-text" />
+          </Link>
+          <FormattedMessage labelId="deployments-empty-state.missing-config-variable.outro" />
         </>
       );
 
     case "MISSING_DEPLOYMENTS":
-      return "There isn't any deployment in your account";
+      return (
+        <FormattedMessage labelId="deployments-empty-state.missing-deployments" />
+      );
 
     case "ERROR_DEPLOYMENTS":
-      return "There was an error while fetching the deployments. Please, retry.";
+      return (
+        <FormattedMessage labelId="deployments-empty-state.error-deployments" />
+      );
 
     case "ERROR_AVAILABILITY":
-      return "There was an error while fetching the features availability. Please, retry.";
+      return (
+        <FormattedMessage labelId="deployments-empty-state.error-availability" />
+      );
 
     case "ERROR_CONFIG":
-      return "There was an error while fetching the configurations. Please, retry.";
+      return (
+        <FormattedMessage labelId="deployments-empty-state.error-config" />
+      );
 
     default:
-      return "There was an unexpected error";
+      return <FormattedMessage labelId="deployments-empty-state.default" />;
   }
 };
 

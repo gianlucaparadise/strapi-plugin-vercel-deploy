@@ -33,5 +33,17 @@
   "deploy-error-message.missing-config-variable.outro": " per maggiori informazioni",
   "deploy-error-message.error-availability": "Errore di disponibiltà inaspettato: per favore riprova",
   "deploy-error-message.error-deploy": "Errore di rilascio inaspettato: per favore riprova",
-  "deploy-error-message.default": "Errore inaspettato"
+  "deploy-error-message.default": "Errore inaspettato",
+
+  "deployments-container.loader": "Caricamento del contenuto...",
+
+  "deployments-empty-state.missing-config-object": "L'oggetto di configurazione è vuoto e questo è inaspettato",
+  "deployments-empty-state.missing-config-variable.intro": "Non hai impostato l'API Token di Vercel. Accedi alle ",
+  "deployments-empty-state.missing-config-variable.link-text": "impostazioni del Plugin",
+  "deployments-empty-state.missing-config-variable.outro": " per maggiori informazioni",
+  "deployments-empty-state.missing-deployments": "Non c'è nessun rilascio nel tuo profilo",
+  "deployments-empty-state.error-deployments": "C'è stato un errore mentre venivano recuperati i rilasci. Per favore, riprova.",
+  "deployments-empty-state.error-availability": "C'è stato un errore mentre venivano recuperate le disponibilità delle funzionalità. Per favore, riprova.",
+  "deployments-empty-state.error-config": "C'è stato un errore mentre venivano recuperate le configurazioni. Per favore, riprova.",
+  "deployments-empty-state.default": "C'è stato un errore inaspettato"
 }

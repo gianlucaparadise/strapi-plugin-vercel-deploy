@@ -33,5 +33,17 @@
   "deploy-error-message.missing-config-variable.outro": " for more info",
   "deploy-error-message.error-availability": "Unexpected availability error: please retry",
   "deploy-error-message.error-deploy": "Unexpected deploy error: please retry",
-  "deploy-error-message.default": "Unexpected error"
+  "deploy-error-message.default": "Unexpected error",
+
+  "deployments-container.loader": "Loading content...",
+
+  "deployments-empty-state.missing-config-object": "The config object is empty and this is unexpected",
+  "deployments-empty-state.missing-config-variable.intro": "You did not set the Vercel API Token. Go to ",
+  "deployments-empty-state.missing-config-variable.link-text": "Plugin settings",
+  "deployments-empty-state.missing-config-variable.outro": " for more info",
+  "deployments-empty-state.missing-deployments": "There isn't any deployment in your account",
+  "deployments-empty-state.error-deployments": "There was an error while fetching the deployments. Please, retry.",
+  "deployments-empty-state.error-availability": "There was an error while fetching the features availability. Please, retry.",
+  "deployments-empty-state.error-config": "There was an error while fetching the configurations. Please, retry.",
+  "deployments-empty-state.default": "There was an unexpected error"
 }
