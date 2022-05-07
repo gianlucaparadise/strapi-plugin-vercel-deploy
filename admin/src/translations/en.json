@@ -45,5 +45,12 @@
   "deployments-empty-state.error-deployments": "There was an error while fetching the deployments. Please, retry.",
   "deployments-empty-state.error-availability": "There was an error while fetching the features availability. Please, retry.",
   "deployments-empty-state.error-config": "There was an error while fetching the configurations. Please, retry.",
-  "deployments-empty-state.default": "There was an unexpected error"
+  "deployments-empty-state.default": "There was an unexpected error",
+
+  "deployments-list.table-header.app-name": "App name",
+  "deployments-list.table-header.state": "State",
+  "deployments-list.table-header.creation-date": "Creation date",
+  "deployments-list.table-header.deployment": "Deployment",
+  "deployments-list.table-body.visit-url-text": "Visit",
+  "deployments-list.table-body.inspect-url-text": "Inspect"
 }

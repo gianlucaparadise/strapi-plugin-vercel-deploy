@@ -10,6 +10,8 @@ import { Typography } from "@strapi/design-system/Typography";
 import { Link } from "@strapi/design-system/Link";
 import { Badge } from "@strapi/design-system/Badge";
 
+import FormattedMessage from "../FormattedMessage";
+
 /**
  * @typedef {import('./typedefs').Props} Props
  * @typedef {import("../../../../types/typedefs").DeploymentState} DeploymentState
@@ -55,16 +57,28 @@ const DeploymentsList = ({ deployments }) => {
       <Thead>
         <Tr>
           <Th>
-            <Typography variant={headerFontVariant}>App name</Typography>
+            <FormattedMessage
+              variant={headerFontVariant}
+              labelId="deployments-list.table-header.app-name"
+            />
           </Th>
           <Th>
-            <Typography variant={headerFontVariant}>State</Typography>
+            <FormattedMessage
+              variant={headerFontVariant}
+              labelId="deployments-list.table-header.state"
+            />
           </Th>
           <Th>
-            <Typography variant={headerFontVariant}>Creation date</Typography>
+            <FormattedMessage
+              variant={headerFontVariant}
+              labelId="deployments-list.table-header.creation-date"
+            />
           </Th>
           <Th>
-            <Typography variant={headerFontVariant}>Deployment</Typography>
+            <FormattedMessage
+              variant={headerFontVariant}
+              labelId="deployments-list.table-header.deployment"
+            />
           </Th>
         </Tr>
       </Thead>
@@ -86,11 +100,11 @@ const DeploymentsList = ({ deployments }) => {
             </Td>
             <Td>
               <Link href={entry.url} isExternal>
-                Visit
+                <FormattedMessage labelId="deployments-list.table-body.visit-url-text" />
               </Link>
               {" | "}
               <Link href={entry.inspectorUrl} isExternal>
-                Inspect
+                <FormattedMessage labelId="deployments-list.table-body.inspect-url-text" />
               </Link>
             </Td>
           </Tr>

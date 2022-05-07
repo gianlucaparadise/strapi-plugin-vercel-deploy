@@ -2,7 +2,7 @@
   "home-page.header.title": "Rilascia su Vercel",
   "home-page.header.subtitle": "Rilascia il tuo sito ospitato su Vercel",
   "home-page.deploy-button.title": "Rilascio manuale",
-  "home-page.deploy-button.subtitle": "Scatena un rilascio su Vercel usando il webhook che hai configurato",
+  "home-page.deploy-button.subtitle": "Avvia un rilascio su Vercel usando il webhook che hai configurato",
   "home-page.deployments.title": "Rilasci",
   "home-page.deployments.subtitle": "Ultimi rilasci sul tuo profilo Vercel",
   "home-page.deployments.loader": "Recupero dei rilasci",
@@ -45,5 +45,12 @@
   "deployments-empty-state.error-deployments": "C'è stato un errore mentre venivano recuperati i rilasci. Per favore, riprova.",
   "deployments-empty-state.error-availability": "C'è stato un errore mentre venivano recuperate le disponibilità delle funzionalità. Per favore, riprova.",
   "deployments-empty-state.error-config": "C'è stato un errore mentre venivano recuperate le configurazioni. Per favore, riprova.",
-  "deployments-empty-state.default": "C'è stato un errore inaspettato"
+  "deployments-empty-state.default": "C'è stato un errore inaspettato",
+
+  "deployments-list.table-header.app-name": "Nome dell'app",
+  "deployments-list.table-header.state": "Stato",
+  "deployments-list.table-header.creation-date": "Data di creazoine",
+  "deployments-list.table-header.deployment": "Rilascio",
+  "deployments-list.table-body.visit-url-text": "Visita",
+  "deployments-list.table-body.inspect-url-text": "Ispeziona"
 }
