@@ -1,4 +1,9 @@
 {
+  "vercel-deploy.plugin.name": "Vercel Deploy",
+
+  "vercel-deploy-settings.links-header": "Vercel Deploy",
+  "vercel-deploy-settings.link-configuration-label": "Configuration",
+
   "home-page.header.title": "Vercel Deploy",
   "home-page.header.subtitle": "Deploy your website hosted on Vercel",
   "home-page.deploy-button.title": "Manual deploy",

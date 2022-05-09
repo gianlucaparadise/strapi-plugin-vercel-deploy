@@ -36,7 +36,7 @@ export default {
       {
         id: settingsBaseName,
         intlLabel: {
-          id: `${settingsBaseName}-links-header`,
+          id: `${settingsBaseName}.links-header`,
           defaultMessage: "Vercel Deploy",
         },
       },
@@ -44,7 +44,7 @@ export default {
         // links
         {
           intlLabel: {
-            id: `${settingsBaseName}-link-configuration-label`,
+            id: `${settingsBaseName}.link-configuration-label`,
             defaultMessage: "Configuration",
           },
           id: `${settingsBaseName}-link-configuration`,
