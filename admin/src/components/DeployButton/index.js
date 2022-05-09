@@ -13,6 +13,7 @@ import SymmetricBox from "../../components/SymmetricBox";
 import DeployErrorMessage from "../../components/DeployErrorMessage";
 import { runDeploy } from "../../utils/api";
 import FormattedMessage from "../FormattedMessage";
+import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
@@ -47,6 +48,8 @@ const DeployButton = ({
   runDeployAvailability,
   onDeployed,
 }) => {
+  const labelLoader = useFormattedMessage("deploy-button.loader");
+
   const [isLoading, setIsLoading] = useState(false);
   const [hasDeployError, setHasDeployError] = useState(false);
 
@@ -82,9 +85,7 @@ const DeployButton = ({
       </SymmetricBox>
       {isLoading && (
         <SymmetricBox paddingHorizontal={4}>
-          <Loader small>
-            <FormattedMessage labelId="deploy-button.loader" />
-          </Loader>
+          <Loader small>{labelLoader}</Loader>
         </SymmetricBox>
       )}
       {!hasDeployedSuccessfully && (

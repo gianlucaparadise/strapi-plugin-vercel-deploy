@@ -12,6 +12,7 @@ import { useDeployments } from "../../hooks/useDeployments";
 import DeploymentsEmptyState from "../DeploymentsEmptyState";
 import DeploymentsList from "../DeploymentsList";
 import FormattedMessage from "../FormattedMessage";
+import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Deployment} Deployment
@@ -24,6 +25,8 @@ import FormattedMessage from "../FormattedMessage";
  * @returns {JSX.Element}
  */
 const DeploymentsContainer = ({ usePolling, onDeploymentsFetched }) => {
+  const labelLoader = useFormattedMessage("deployments-container.loader");
+
   const [isLoadingDeployments, deployments, hasDeploymentsError] =
     useDeployments(usePolling, onDeploymentsFetched);
 
@@ -32,9 +35,7 @@ const DeploymentsContainer = ({ usePolling, onDeploymentsFetched }) => {
   if (isLoadingDeployments && hasEmptyDeployments) {
     return (
       <Flex justifyContent="center">
-        <Loader>
-          <FormattedMessage labelId="deployments-container.loader" />
-        </Loader>
+        <Loader>{labelLoader}</Loader>
       </Flex>
     );
   }

@@ -49,6 +49,9 @@ const SettingsContainer = () => {
   const appNamePlaceholder = useFormattedMessage(
     "settings-page.app-name.placeholder"
   );
+  const labelLoader = useFormattedMessage(
+    "settings-page.settings-container.loader"
+  );
 
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -82,9 +85,7 @@ const SettingsContainer = () => {
   if (isLoading) {
     return (
       <Flex justifyContent="center">
-        <Loader>
-          <FormattedMessage labelId="settings-page.settings-container.loader" />
-        </Loader>
+        <Loader>{labelLoader}</Loader>
       </Flex>
     );
   }

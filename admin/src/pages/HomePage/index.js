@@ -28,6 +28,7 @@ import FormattedMessage from "../../components/FormattedMessage";
 const HomePage = () => {
   const headerTitle = useFormattedMessage("home-page.header.title");
   const headerSubtitle = useFormattedMessage("home-page.header.subtitle");
+  const labelLoader = useFormattedMessage("home-page.deployments.loader");
 
   const [isLoadingAvailability, availability, hasAvailabilityError] =
     useDeployAvailability();
@@ -97,9 +98,7 @@ const HomePage = () => {
             </Stack>
             {useDeploymentsPolling && (
               <SymmetricBox paddingHorizontal={2} paddingVertical={0}>
-                <Loader small>
-                  <FormattedMessage labelId="home-page.deployments.loader" />
-                </Loader>
+                <Loader small>{labelLoader}</Loader>
               </SymmetricBox>
             )}
           </Flex>
