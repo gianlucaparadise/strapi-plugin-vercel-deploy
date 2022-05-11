@@ -1,20 +1,21 @@
 # Vercel Deploy
 
 [![npm version](https://badge.fury.io/js/strapi-plugin-vercel-deploy.svg)](https://badge.fury.io/js/strapi-plugin-vercel-deploy)
+[![strapi market link](https://img.shields.io/badge/strapi-v4-blueviolet)](https://market.strapi.io/plugins/strapi-plugin-vercel-deploy)
 
 Strapi v4 plugin to trigger and monitor a deployment on Vercel.
 
-![Vercel Deploy Logo](./assets/strapi-vercel-deploy-logo.png "Vercel Deploy Logo")
+![Vercel Deploy Logo](https://github.com/gianlucaparadise/strapi-plugin-vercel-deploy/raw/main/assets/strapi-vercel-deploy-logo.png "Vercel Deploy Logo")
 
 ## Plugin Preview
 
 Home Page:
 
-![Plugin Home Page](./assets/strapi-vercel-deploy-home.png "Plugin Home Page")
+![Plugin Home Page](https://github.com/gianlucaparadise/strapi-plugin-vercel-deploy/raw/main/assets/strapi-vercel-deploy-home.png "Plugin Home Page")
 
 Settings Page:
 
-![Plugin Settings Page](./assets/strapi-vercel-deploy-settings.png "Plugin Settings Page")
+![Plugin Settings Page](https://github.com/gianlucaparadise/strapi-plugin-vercel-deploy/raw/main/assets/strapi-vercel-deploy-settings.png "Plugin Settings Page")
 
 ## Installation
 
