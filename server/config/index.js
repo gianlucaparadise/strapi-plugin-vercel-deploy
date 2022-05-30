@@ -20,5 +20,8 @@ module.exports = {
     if (config.appFilter && typeof config.appFilter !== "string") {
       throw new Error("Config property `appFilter` has to be a string");
     }
+    if (config.teamFilter && typeof config.teamFilter !== "string") {
+      throw new Error("Config property `teamFilter` has to be a string");
+    }
   },
 };

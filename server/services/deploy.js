@@ -3,6 +3,11 @@
 const axios = require("axios").default;
 const { buildConfig, getFeatureAvailability } = require("./utils");
 
+// axios.interceptors.request.use((request) => {
+//   console.log("Starting Request", JSON.stringify(request, null, 2));
+//   return request;
+// });
+
 /**
  * @typedef {import('../../types/typedefs').RunDeployResponse} RunDeployResponse
  * @typedef {import('../../types/typedefs').DeployAvailabilityResponse} DeployAvailabilityResponse
@@ -54,11 +59,15 @@ module.exports = ({ strapi }) => ({
         throw "missing configuration: deployHook";
       }
 
-      const params = config.appFilter
-        ? {
-            app: config.appFilter,
-          }
-        : undefined;
+      const params = {};
+
+      if (config.appFilter) {
+        params.app = config.appFilter;
+      }
+
+      if (config.teamFilter) {
+        params.teamId = config.teamFilter;
+      }
 
       const response = await axios.get(
         "https://api.vercel.com/v6/deployments",
@@ -94,16 +103,21 @@ module.exports = ({ strapi }) => ({
         "deployHook"
       );
       const listDeployAvailability = getFeatureAvailability(config, "apiToken");
-      const filterDeployAvailability = getFeatureAvailability(
+      const filterDeployAvailabilityPerName = getFeatureAvailability(
         config,
         "appFilter"
+      );
+      const filterDeployAvailabilityPerTeam = getFeatureAvailability(
+        config,
+        "teamFilter"
       );
 
       return {
         data: {
           runDeploy: runDeployAvailability,
           listDeploy: listDeployAvailability,
-          filterDeployPerAppName: filterDeployAvailability,
+          filterDeployPerAppName: filterDeployAvailabilityPerName,
+          filterDeployPerTeamId: filterDeployAvailabilityPerTeam,
         },
       };
     } catch (error) {

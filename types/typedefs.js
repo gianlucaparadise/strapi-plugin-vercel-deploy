@@ -19,6 +19,7 @@
  * @property {?string} deployHook Url of the git deploy hook exposed in Vercel. Plugin config: `deployHook`
  * @property {?string} apiToken API token for the Vercel integration. Plugin config: `apiToken`
  * @property {?string} appFilter Name of the app to filter Vercel deployments. Plugin config: `appFilter`
+ * @property {?string} teamFilter Id of the team to filter Vercel deployments. Plugin config: `teamFilter`
  */
 
 /**
@@ -50,6 +51,7 @@
  * @property {FeatureAvailability} runDeploy Describe the availability of the run deploy feature
  * @property {FeatureAvailability} listDeploy Describe the availability of the deploy list feature
  * @property {FeatureAvailability} filterDeployPerAppName Describe the availability of the filtering deploy list by name feature
+ * @property {FeatureAvailability} filterDeployPerTeamId Describe the availability of the filtering deploy list by Team Id feature
  */
 
 /**
