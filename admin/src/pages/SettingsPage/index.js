@@ -49,6 +49,9 @@ const SettingsContainer = () => {
   const appNamePlaceholder = useFormattedMessage(
     "settings-page.app-name.placeholder"
   );
+  const teamIdPlaceholder = useFormattedMessage(
+    "settings-page.team-id.placeholder"
+  );
   const labelLoader = useFormattedMessage(
     "settings-page.settings-container.loader"
   );
@@ -81,6 +84,7 @@ const SettingsContainer = () => {
   const deployHook = pluginConfig.deployHook || "";
   const apiToken = pluginConfig.apiToken || "";
   const appFilter = pluginConfig.appFilter || "";
+  const teamFilter = pluginConfig.teamFilter || "";
 
   if (isLoading) {
     return (
@@ -160,6 +164,28 @@ const SettingsContainer = () => {
                 <FormattedMessage labelId="settings-page.app-name.learn-more-link-text" />
               </Link>
               <FormattedMessage labelId="settings-page.app-name.learn-more-outro" />
+            </Typography>
+          </Box>
+        </Stack>
+      </BoxField>
+      <BoxField fieldName="vercel-deploy-team-id">
+        <Stack>
+          <FieldLabel>
+            <FormattedMessage labelId="settings-page.team-id.label" />
+          </FieldLabel>
+          <FieldInput
+            type="text"
+            placeholder={teamIdPlaceholder}
+            value={teamFilter}
+            disabled={true}
+          />
+          <Box>
+            <Typography variant="pi">
+              <FormattedMessage labelId="settings-page.team-id.learn-more-intro" />
+              <Link isExternal href="https://vercel.com/dashboard">
+                <FormattedMessage labelId="settings-page.team-id.learn-more-link-text" />
+              </Link>
+              <FormattedMessage labelId="settings-page.team-id.learn-more-outro" />
             </Typography>
           </Box>
         </Stack>

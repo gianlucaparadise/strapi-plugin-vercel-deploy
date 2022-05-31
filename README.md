@@ -70,6 +70,7 @@ module.exports = ({ env }) => ({
         "https://api.vercel.com/v1/integrations/deploy/prj_<deploy-hook>",
       apiToken: "<vercel-api-token>",
       appFilter: "your-app-name-on-vercel",
+      teamFilter: "your-team-id-on-vercel",
     },
   },
 });
@@ -86,7 +87,12 @@ The plugin is reading the following configuration variables to work:
   - Access tokens can be created and managed inside your [account settings](https://vercel.com/account/tokens)
 
 - `appFilter`: Name of your Vercel App used to filter the list of deployments
+
   - Set the name of your [Vercel App](https://vercel.com/dashboard) to see only the deployments you need
+
+- `teamFilter`: Id of your Vercel Team used to filter the list of deployments
+
+  - Set the id of your [Vercel Team](https://vercel.com/dashboard) to see only the deployments you need
 
 ### Environment Configuration
 
@@ -100,6 +106,7 @@ module.exports = ({ env }) => ({
       deployHook: process.env.VERCEL_DEPLOY_PLUGIN_HOOK,
       apiToken: process.env.VERCEL_DEPLOY_PLUGIN_API_TOKEN,
       appFilter: process.env.VERCEL_DEPLOY_PLUGIN_APP_FILTER,
+      teamFilter: process.env.VERCEL_DEPLOY_PLUGIN_TEAM_FILTER,
     },
   },
 });

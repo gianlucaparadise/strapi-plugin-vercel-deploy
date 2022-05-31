@@ -28,6 +28,11 @@
   "settings-page.app-name.learn-more-intro": "Set the name of your ",
   "settings-page.app-name.learn-more-link-text": "Vercel App",
   "settings-page.app-name.learn-more-outro": " to see only the deployments you need",
+  "settings-page.team-id.label": "Team Id",
+  "settings-page.team-id.placeholder": "You need to set `teamFilter` in plugin config",
+  "settings-page.team-id.learn-more-intro": "Set the id of your ",
+  "settings-page.team-id.learn-more-link-text": "Vercel Team",
+  "settings-page.team-id.learn-more-outro": " to see only the deployments you need",
 
   "deploy-button.label": "Deploy",
   "deploy-button.loader": "Deploying...",

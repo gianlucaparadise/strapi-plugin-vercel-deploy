@@ -28,6 +28,11 @@
   "settings-page.app-name.learn-more-intro": "Imposta il nome della tua ",
   "settings-page.app-name.learn-more-link-text": "App Vercel",
   "settings-page.app-name.learn-more-outro": " per vedere solo i rilasci di cui hai bisogno",
+  "settings-page.team-id.label": "Id del Team",
+  "settings-page.team-id.placeholder": "Hai bisogno di impostare `teamFilter` nelle configurazioni del plugin",
+  "settings-page.team-id.learn-more-intro": "Imposta l'id del tuo ",
+  "settings-page.team-id.learn-more-link-text": "Team Vercel",
+  "settings-page.team-id.learn-more-outro": " per vedere solo i rilasci di cui hai bisogno",
 
   "deploy-button.label": "Rilascia",
   "deploy-button.loader": "Rilasciando...",
