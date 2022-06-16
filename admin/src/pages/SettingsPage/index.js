@@ -7,11 +7,15 @@
 import React, { memo, useEffect, useState } from "react";
 
 import { Box } from "@strapi/design-system/Box";
-import { BaseHeaderLayout } from "@strapi/design-system/Layout";
+import { HeaderLayout } from "@strapi/design-system/Layout";
 import { Stack } from "@strapi/design-system/Stack";
-import { Field, FieldLabel, FieldInput } from "@strapi/design-system/Field";
+import {
+  Field,
+  FieldLabel,
+  FieldInput,
+  FieldHint,
+} from "@strapi/design-system/Field";
 import { Link } from "@strapi/design-system/Link";
-import { Typography } from "@strapi/design-system/Typography";
 import { Loader } from "@strapi/design-system/Loader";
 import { Flex } from "@strapi/design-system/Flex";
 
@@ -24,8 +28,8 @@ import { useFormattedMessage } from "../../hooks/useFormattedMessage";
  * @typedef {import('../../../../types/typedefs').PluginConfigMap} PluginConfigMap
  */
 
-const BoxField = ({ fieldName, children }) => {
-  const horizontalPadding = 6;
+const BoxField = ({ fieldName, fieldHint, children }) => {
+  const horizontalPadding = 10;
   const verticalPadding = 2;
   return (
     <Box
@@ -34,7 +38,9 @@ const BoxField = ({ fieldName, children }) => {
       paddingTop={verticalPadding}
       paddingBottom={verticalPadding}
     >
-      <Field name={fieldName}>{children}</Field>
+      <Field name={fieldName} hint={fieldHint}>
+        {children}
+      </Field>
     </Box>
   );
 };
@@ -104,7 +110,17 @@ const SettingsContainer = () => {
 
   return (
     <>
-      <BoxField fieldName="vercel-deploy-hook">
+      <BoxField
+        fieldName="vercel-deploy-hook"
+        fieldHint={
+          <>
+            <FormattedMessage labelId="settings-page.deploy-hook.learn-more-intro" />
+            <Link isExternal href="https://vercel.com/docs/git/deploy-hooks">
+              <FormattedMessage labelId="settings-page.deploy-hook.learn-more-link-text" />
+            </Link>
+          </>
+        }
+      >
         <Stack>
           <FieldLabel required>
             <FormattedMessage labelId="settings-page.deploy-hook.label" />
@@ -115,17 +131,20 @@ const SettingsContainer = () => {
             value={deployHook}
             disabled={true}
           />
-          <Box>
-            <Typography variant="pi">
-              <FormattedMessage labelId="settings-page.deploy-hook.learn-more-intro" />
-              <Link isExternal href="https://vercel.com/docs/git/deploy-hooks">
-                <FormattedMessage labelId="settings-page.deploy-hook.learn-more-link-text" />
-              </Link>
-            </Typography>
-          </Box>
+          <FieldHint />
         </Stack>
       </BoxField>
-      <BoxField fieldName="vercel-deploy-api-token">
+      <BoxField
+        fieldName="vercel-deploy-api-token"
+        fieldHint={
+          <>
+            <FormattedMessage labelId="settings-page.api-token.learn-more-intro" />
+            <Link isExternal href="https://vercel.com/account/tokens">
+              <FormattedMessage labelId="settings-page.api-token.learn-more-link-text" />
+            </Link>
+          </>
+        }
+      >
         <Stack>
           <FieldLabel required>
             <FormattedMessage labelId="settings-page.api-token.label" />
@@ -136,17 +155,21 @@ const SettingsContainer = () => {
             value={apiToken}
             disabled={true}
           />
-          <Box>
-            <Typography variant="pi">
-              <FormattedMessage labelId="settings-page.api-token.learn-more-intro" />
-              <Link isExternal href="https://vercel.com/account/tokens">
-                <FormattedMessage labelId="settings-page.api-token.learn-more-link-text" />
-              </Link>
-            </Typography>
-          </Box>
+          <FieldHint />
         </Stack>
       </BoxField>
-      <BoxField fieldName="vercel-deploy-app-name">
+      <BoxField
+        fieldName="vercel-deploy-app-name"
+        fieldHint={
+          <>
+            <FormattedMessage labelId="settings-page.app-name.learn-more-intro" />
+            <Link isExternal href="https://vercel.com/dashboard">
+              <FormattedMessage labelId="settings-page.app-name.learn-more-link-text" />
+            </Link>
+            <FormattedMessage labelId="settings-page.app-name.learn-more-outro" />
+          </>
+        }
+      >
         <Stack>
           <FieldLabel>
             <FormattedMessage labelId="settings-page.app-name.label" />
@@ -157,18 +180,21 @@ const SettingsContainer = () => {
             value={appFilter}
             disabled={true}
           />
-          <Box>
-            <Typography variant="pi">
-              <FormattedMessage labelId="settings-page.app-name.learn-more-intro" />
-              <Link isExternal href="https://vercel.com/dashboard">
-                <FormattedMessage labelId="settings-page.app-name.learn-more-link-text" />
-              </Link>
-              <FormattedMessage labelId="settings-page.app-name.learn-more-outro" />
-            </Typography>
-          </Box>
+          <FieldHint />
         </Stack>
       </BoxField>
-      <BoxField fieldName="vercel-deploy-team-id">
+      <BoxField
+        fieldName="vercel-deploy-team-id"
+        fieldHint={
+          <>
+            <FormattedMessage labelId="settings-page.team-id.learn-more-intro" />
+            <Link isExternal href="https://vercel.com/dashboard">
+              <FormattedMessage labelId="settings-page.team-id.learn-more-link-text" />
+            </Link>
+            <FormattedMessage labelId="settings-page.team-id.learn-more-outro" />
+          </>
+        }
+      >
         <Stack>
           <FieldLabel>
             <FormattedMessage labelId="settings-page.team-id.label" />
@@ -179,15 +205,7 @@ const SettingsContainer = () => {
             value={teamFilter}
             disabled={true}
           />
-          <Box>
-            <Typography variant="pi">
-              <FormattedMessage labelId="settings-page.team-id.learn-more-intro" />
-              <Link isExternal href="https://vercel.com/dashboard">
-                <FormattedMessage labelId="settings-page.team-id.learn-more-link-text" />
-              </Link>
-              <FormattedMessage labelId="settings-page.team-id.learn-more-outro" />
-            </Typography>
-          </Box>
+          <FieldHint />
         </Stack>
       </BoxField>
     </>
@@ -201,11 +219,7 @@ const SettingsPage = () => {
   return (
     <>
       <Box background="neutral100">
-        <BaseHeaderLayout
-          title={headerTitle}
-          subtitle={headerSubtitle}
-          as="h2"
-        />
+        <HeaderLayout title={headerTitle} subtitle={headerSubtitle} as="h2" />
       </Box>
       <SettingsContainer />
     </>
