@@ -15,13 +15,13 @@ import {
   FieldInput,
   FieldHint,
 } from "@strapi/design-system/Field";
-import { Link } from "@strapi/design-system/Link";
 import { Loader } from "@strapi/design-system/Loader";
 import { Flex } from "@strapi/design-system/Flex";
 
 import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
 import { getConfig } from "../../utils/api";
 import FormattedMessage from "../../components/FormattedMessage";
+import ExternalLink from "../../components/ExternalLink";
 import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
@@ -115,9 +115,9 @@ const SettingsContainer = () => {
         fieldHint={
           <>
             <FormattedMessage labelId="settings-page.deploy-hook.learn-more-intro" />
-            <Link isExternal href="https://vercel.com/docs/git/deploy-hooks">
+            <ExternalLink href="https://vercel.com/docs/git/deploy-hooks">
               <FormattedMessage labelId="settings-page.deploy-hook.learn-more-link-text" />
-            </Link>
+            </ExternalLink>
           </>
         }
       >
@@ -139,9 +139,9 @@ const SettingsContainer = () => {
         fieldHint={
           <>
             <FormattedMessage labelId="settings-page.api-token.learn-more-intro" />
-            <Link isExternal href="https://vercel.com/account/tokens">
+            <ExternalLink href="https://vercel.com/account/tokens">
               <FormattedMessage labelId="settings-page.api-token.learn-more-link-text" />
-            </Link>
+            </ExternalLink>
           </>
         }
       >
@@ -163,9 +163,9 @@ const SettingsContainer = () => {
         fieldHint={
           <>
             <FormattedMessage labelId="settings-page.app-name.learn-more-intro" />
-            <Link isExternal href="https://vercel.com/dashboard">
+            <ExternalLink href="https://vercel.com/dashboard">
               <FormattedMessage labelId="settings-page.app-name.learn-more-link-text" />
-            </Link>
+            </ExternalLink>
             <FormattedMessage labelId="settings-page.app-name.learn-more-outro" />
           </>
         }
@@ -188,9 +188,9 @@ const SettingsContainer = () => {
         fieldHint={
           <>
             <FormattedMessage labelId="settings-page.team-id.learn-more-intro" />
-            <Link isExternal href="https://vercel.com/dashboard">
+            <ExternalLink href="https://vercel.com/dashboard">
               <FormattedMessage labelId="settings-page.team-id.learn-more-link-text" />
-            </Link>
+            </ExternalLink>
             <FormattedMessage labelId="settings-page.team-id.learn-more-outro" />
           </>
         }
