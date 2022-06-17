@@ -56,7 +56,6 @@
   "deployments-list.table-header.app-name": "Nome dell'app",
   "deployments-list.table-header.state": "Stato",
   "deployments-list.table-header.creation-date": "Data di creazoine",
-  "deployments-list.table-header.deployment": "Rilascio",
   "deployments-list.table-body.visit-url-text": "Visita",
   "deployments-list.table-body.inspect-url-text": "Ispeziona"
 }

@@ -56,7 +56,6 @@
   "deployments-list.table-header.app-name": "App name",
   "deployments-list.table-header.state": "State",
   "deployments-list.table-header.creation-date": "Creation date",
-  "deployments-list.table-header.deployment": "Deployment",
   "deployments-list.table-body.visit-url-text": "Visit",
   "deployments-list.table-body.inspect-url-text": "Inspect"
 }

@@ -6,6 +6,7 @@
  * DeploymentsList Props
  * @typedef {Object} Props
  * @property {Deployment[]} deployments
+ * @property {boolean} usePolling
  */
 
 exports.unused = {};

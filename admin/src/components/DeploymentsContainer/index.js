@@ -11,7 +11,6 @@ import { Flex } from "@strapi/design-system/Flex";
 import { useDeployments } from "../../hooks/useDeployments";
 import DeploymentsEmptyState from "../DeploymentsEmptyState";
 import DeploymentsList from "../DeploymentsList";
-import FormattedMessage from "../FormattedMessage";
 import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
@@ -48,7 +47,7 @@ const DeploymentsContainer = ({ usePolling, onDeploymentsFetched }) => {
     return <DeploymentsEmptyState type="MISSING_DEPLOYMENTS" />;
   }
 
-  return <DeploymentsList deployments={deployments} />;
+  return <DeploymentsList deployments={deployments} usePolling={usePolling} />;
 };
 
 export default DeploymentsContainer;
