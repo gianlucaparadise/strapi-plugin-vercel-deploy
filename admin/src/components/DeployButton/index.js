@@ -8,6 +8,7 @@ import React, { useState } from "react";
 
 import { Button } from "@strapi/design-system/Button";
 import { Loader } from "@strapi/design-system/Loader";
+import Plus from "@strapi/icons/Plus";
 
 import SymmetricBox from "../../components/SymmetricBox";
 import DeployErrorMessage from "../../components/DeployErrorMessage";
@@ -77,23 +78,27 @@ const DeployButton = ({
   };
 
   return (
-    <>
-      <SymmetricBox paddingHorizontal={4}>
-        <Button onClick={runDeployHandler} disabled={!canDeploy || isLoading}>
-          <FormattedMessage labelId="deploy-button.label" />
-        </Button>
-      </SymmetricBox>
+    <div style={{ display: "flex", alignItems: "center" }}>
       {isLoading && (
         <SymmetricBox paddingHorizontal={4}>
           <Loader small>{labelLoader}</Loader>
         </SymmetricBox>
       )}
       {!hasDeployedSuccessfully && (
-        <SymmetricBox paddingHorizontal={4}>
-          <DeployErrorMessage type={deployErrorState} />
+        <SymmetricBox paddingHorizontal={1}>
+          <DeployErrorMessage type={"ERROR_DEPLOY"} />
         </SymmetricBox>
       )}
-    </>
+      <SymmetricBox paddingHorizontal={4}>
+        <Button onClick={runDeployHandler} disabled={!canDeploy || isLoading}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <Plus />
+            <span style={{ width: "8px" }} />
+            <FormattedMessage labelId="deploy-button.label" />
+          </div>
+        </Button>
+      </SymmetricBox>
+    </div>
   );
 };
 
