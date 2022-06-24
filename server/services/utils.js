@@ -11,12 +11,15 @@ const getPluginConfig = require("../helpers/pluginConfig");
  * Build config map object
  * @returns {PluginConfigMap}
  */
-const buildConfig = (strapi) => {
+const buildConfig = (strapi, hideSensitiveInfo = false) => {
   const pluginConfig = getPluginConfig(strapi);
+
+  /** @type {string | null} */
+  const apiToken = pluginConfig("apiToken");
 
   return {
     deployHook: pluginConfig("deployHook"),
-    apiToken: pluginConfig("apiToken"),
+    apiToken: hideSensitiveInfo ? apiToken?.substring(0, 6) : apiToken,
     appFilter: pluginConfig("appFilter"),
     teamFilter: pluginConfig("teamFilter"),
   };

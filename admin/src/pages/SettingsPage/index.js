@@ -88,7 +88,7 @@ const SettingsContainer = () => {
   }, [setIsLoading, setPluginConfig]);
 
   const deployHook = pluginConfig.deployHook || "";
-  const apiToken = pluginConfig.apiToken || "";
+  const apiToken = pluginConfig.apiToken ? `${pluginConfig.apiToken}[...]` : "";
   const appFilter = pluginConfig.appFilter || "";
   const teamFilter = pluginConfig.teamFilter || "";
 
