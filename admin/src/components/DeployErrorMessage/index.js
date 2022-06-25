@@ -33,7 +33,6 @@ const getMessage = (type) => {
           <Link to="/settings/vercel-deploy">
             <FormattedMessage labelId="deploy-error-message.missing-config-variable.link-text" />
           </Link>
-          <FormattedMessage labelId="deploy-error-message.missing-config-variable.outro" />
         </>
       );
 

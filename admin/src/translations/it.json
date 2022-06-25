@@ -34,9 +34,8 @@
   "deploy-button.loader": "Rilasciando...",
 
   "deploy-error-message.missing-config-object": "Errore di configurazione inaspettato: l'oggetto di configurazoine è vuoto",
-  "deploy-error-message.missing-config-variable.intro": "Errore di configurazione: Non hai impostato il Vercel Deploy Hook. Accedi alle ",
-  "deploy-error-message.missing-config-variable.link-text": "impostazioni del Plugin",
-  "deploy-error-message.missing-config-variable.outro": " per maggiori informazioni",
+  "deploy-error-message.missing-config-variable.intro": "Non hai impostato il Vercel Deploy Hook. ",
+  "deploy-error-message.missing-config-variable.link-text": "Vai alle impostazioni del plugin",
   "deploy-error-message.error-availability": "Errore di disponibiltà inaspettato: per favore riprova",
   "deploy-error-message.error-deploy": "Errore di rilascio inaspettato: per favore riprova",
   "deploy-error-message.default": "Errore inaspettato",

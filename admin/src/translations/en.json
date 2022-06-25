@@ -34,9 +34,8 @@
   "deploy-button.loader": "Deploying...",
 
   "deploy-error-message.missing-config-object": "Unexpected config error: the config object is empty",
-  "deploy-error-message.missing-config-variable.intro": "Config error: You did not set the Vercel Deploy Hook. Go to ",
-  "deploy-error-message.missing-config-variable.link-text": "Plugin settings",
-  "deploy-error-message.missing-config-variable.outro": " for more info",
+  "deploy-error-message.missing-config-variable.intro": "You did not set the Vercel Deploy Hook. ",
+  "deploy-error-message.missing-config-variable.link-text": "See plugin settings",
   "deploy-error-message.error-availability": "Unexpected availability error: please retry",
   "deploy-error-message.error-deploy": "Unexpected deploy error: please retry",
   "deploy-error-message.default": "Unexpected error",

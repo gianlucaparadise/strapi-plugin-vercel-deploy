@@ -86,7 +86,7 @@ const DeployButton = ({
       )}
       {!hasDeployedSuccessfully && (
         <SymmetricBox paddingHorizontal={1}>
-          <DeployErrorMessage type={"ERROR_DEPLOY"} />
+          <DeployErrorMessage type={deployErrorState} />
         </SymmetricBox>
       )}
       <SymmetricBox paddingHorizontal={4}>
