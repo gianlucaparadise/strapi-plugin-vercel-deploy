@@ -1,10 +1,12 @@
+const pluginId = require("../helpers/pluginId");
+
 module.exports = [
   {
     method: "GET",
     path: "/deploy/run",
     handler: "deploy.runDeploy",
     config: {
-      policies: [],
+      policies: [`plugin::${pluginId}.checkConfigRoles`],
     },
   },
   {
@@ -12,7 +14,7 @@ module.exports = [
     path: "/config",
     handler: "config.getConfig",
     config: {
-      policies: [],
+      policies: [`plugin::${pluginId}.checkConfigRoles`],
     },
   },
   {
@@ -20,7 +22,7 @@ module.exports = [
     path: "/deploy/list",
     handler: "deploy.getDeployments",
     config: {
-      policies: [],
+      policies: [`plugin::${pluginId}.checkConfigRoles`],
     },
   },
   {
@@ -28,7 +30,7 @@ module.exports = [
     path: "/deploy/availability",
     handler: "deploy.deployAvailability",
     config: {
-      policies: [],
+      policies: [`plugin::${pluginId}.checkConfigRoles`],
     },
   },
 ];

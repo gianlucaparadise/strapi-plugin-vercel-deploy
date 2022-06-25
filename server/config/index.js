@@ -23,5 +23,8 @@ module.exports = {
     if (config.teamFilter && typeof config.teamFilter !== "string") {
       throw new Error("Config property `teamFilter` has to be a string");
     }
+    if (config.roles && !Array.isArray(config.roles)) {
+      throw new Error("Config property `roles` has to be an array of strings");
+    }
   },
 };

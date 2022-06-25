@@ -71,6 +71,7 @@ module.exports = ({ env }) => ({
       apiToken: "<vercel-api-token>",
       appFilter: "your-app-name-on-vercel",
       teamFilter: "your-team-id-on-vercel",
+      roles: ["strapi-super-admin", "strapi-editor", "strapi-author"],
     },
   },
 });
@@ -94,6 +95,10 @@ The plugin is reading the following configuration variables to work:
 
   - Set the id of your [Vercel Team](https://vercel.com/dashboard) to see only the deployments you need
 
+- `roles`: List of user roles that can use the plugin
+
+  - Any user with at least one of the specified roles can use the plugin. If the list is empty or undefined, any user can use the plugin.
+
 ### Environment Configuration
 
 You shouldn't disclose the api token and the deploy hook url for security reasons. Therefore, you shouldn't add these values to versioning in a public git repository. A suggested solution is to use environment variables. Example:
@@ -107,6 +112,7 @@ module.exports = ({ env }) => ({
       apiToken: process.env.VERCEL_DEPLOY_PLUGIN_API_TOKEN,
       appFilter: process.env.VERCEL_DEPLOY_PLUGIN_APP_FILTER,
       teamFilter: process.env.VERCEL_DEPLOY_PLUGIN_TEAM_FILTER,
+      roles: ["strapi-super-admin"],
     },
   },
 });
