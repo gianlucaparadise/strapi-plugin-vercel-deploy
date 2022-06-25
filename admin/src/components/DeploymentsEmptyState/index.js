@@ -8,7 +8,6 @@ import React, { memo } from "react";
 
 import { EmptyStateLayout } from "@strapi/design-system/EmptyStateLayout";
 import { LinkButton } from "@strapi/design-system/LinkButton";
-import { Icon } from "@strapi/design-system/Icon";
 import EmptyDocuments from "@strapi/icons/EmptyDocuments";
 import EmptyPermissions from "@strapi/icons/EmptyPermissions";
 import ExclamationMarkCircle from "@strapi/icons/ExclamationMarkCircle";
@@ -22,9 +21,7 @@ import { useFormattedMessage } from "../../hooks/useFormattedMessage";
  * @typedef {import('./typedefs').EmptyStateType} DeploymentsAvailability
  */
 
-const wrapIcon = (icon) => (
-  <Icon aria-hidden={true} as={icon} fontSize={"6rem"} />
-);
+const wrapIcon = (icon) => <div style={{ fontSize: "6rem" }}>{icon}</div>;
 
 /**
  * @param {DeploymentsAvailability} listDeployAvailability
@@ -33,19 +30,19 @@ const wrapIcon = (icon) => (
 const getIcon = (listDeployAvailability) => {
   switch (listDeployAvailability) {
     case "MISSING_CONFIG_OBJECT":
-      return wrapIcon(ExclamationMarkCircle);
+      return wrapIcon(<ExclamationMarkCircle />);
 
     case "MISSING_CONFIG_VARIABLE":
-      return wrapIcon(EmptyPermissions);
+      return wrapIcon(<EmptyPermissions />);
 
     case "MISSING_DEPLOYMENTS":
-      return wrapIcon(EmptyDocuments);
+      return wrapIcon(<EmptyDocuments />);
 
     case "ERROR_DEPLOYMENTS":
     case "ERROR_AVAILABILITY":
     case "ERROR_CONFIG":
     default:
-      return wrapIcon(EmotionUnhappy);
+      return wrapIcon(<EmotionUnhappy />);
   }
 };
 
