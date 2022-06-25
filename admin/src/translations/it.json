@@ -37,6 +37,7 @@
   "deploy-error-message.missing-config-variable.intro": "Non hai impostato il Vercel Deploy Hook. ",
   "deploy-error-message.missing-config-variable.link-text": "Vai alle impostazioni del plugin",
   "deploy-error-message.error-availability": "Errore di disponibiltà inaspettato: per favore riprova",
+  "deploy-error-message.error-forbidden": "Potresti non evere i giusti permessi",
   "deploy-error-message.error-deploy": "Errore di rilascio inaspettato: per favore riprova",
   "deploy-error-message.default": "Errore inaspettato",
 
@@ -48,6 +49,7 @@
   "deployments-empty-state.missing-deployments": "Non c'è nessun rilascio nel tuo profilo",
   "deployments-empty-state.error-deployments": "C'è stato un errore mentre venivano recuperati i rilasci. Per favore, riprova.",
   "deployments-empty-state.error-availability": "C'è stato un errore mentre venivano recuperate le disponibilità delle funzionalità. Per favore, riprova.",
+  "deployments-empty-state.error-forbidden": "Potresti non evere i giusti permessi",
   "deployments-empty-state.error-config": "C'è stato un errore mentre venivano recuperate le configurazioni. Per favore, riprova.",
   "deployments-empty-state.default": "C'è stato un errore inaspettato",
 

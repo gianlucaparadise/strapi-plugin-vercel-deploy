@@ -39,7 +39,8 @@ const getIcon = (listDeployAvailability) => {
       return wrapIcon(<EmptyDocuments />);
 
     case "ERROR_DEPLOYMENTS":
-    case "ERROR_AVAILABILITY":
+    case "ERROR_AVAILABILITY_GENERIC":
+    case "ERROR_AVAILABILITY_FORBIDDEN":
     case "ERROR_CONFIG":
     default:
       return wrapIcon(<EmotionUnhappy />);
@@ -64,8 +65,11 @@ const getTextId = (listDeployAvailability) => {
     case "ERROR_DEPLOYMENTS":
       return "deployments-empty-state.error-deployments";
 
-    case "ERROR_AVAILABILITY":
+    case "ERROR_AVAILABILITY_GENERIC":
       return "deployments-empty-state.error-availability";
+
+    case "ERROR_AVAILABILITY_FORBIDDEN":
+      return "deployments-empty-state.error-forbidden";
 
     case "ERROR_CONFIG":
       return "deployments-empty-state.error-config";

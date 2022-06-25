@@ -21,7 +21,34 @@ import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('../../../../types/typedefs').DeploymentsFetched} DeploymentsFetched
+ * @typedef {import('../../../../types/typedefs').ApiErrorType} ApiErrorType
+ * @typedef {import('../../../../types/typedefs').FeatureAvailability} FeatureAvailability
+ * @typedef {import('../../components/DeploymentsEmptyState/typedefs').EmptyStateType} EmptyStateType
  */
+
+/**
+ *
+ * @param {ApiErrorType} availabilityApiError
+ * @param {FeatureAvailability} listDeployAvailability
+ * @returns {EmptyStateType}
+ */
+const getDeploymentsEmptyStateType = (
+  availabilityApiError,
+  listDeployAvailability
+) => {
+  if (availabilityApiError) {
+    switch (availabilityApiError) {
+      case "FORBIDDEN":
+        return "ERROR_AVAILABILITY_FORBIDDEN";
+
+      case "GENERIC_ERROR":
+      default:
+        return "ERROR_AVAILABILITY_GENERIC";
+    }
+  }
+
+  return listDeployAvailability;
+};
 
 const HomePage = () => {
   const headerTitle = useFormattedMessage("home-page.header.title");
@@ -77,11 +104,10 @@ const HomePage = () => {
           />
         ) : (
           <DeploymentsEmptyState
-            type={
-              hasAvailabilityError
-                ? "ERROR_AVAILABILITY"
-                : availability?.listDeploy
-            }
+            type={getDeploymentsEmptyStateType(
+              apiError,
+              availability?.listDeploy
+            )}
           />
         )}
       </SymmetricBox>
