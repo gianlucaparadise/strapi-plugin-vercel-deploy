@@ -44,9 +44,8 @@
   "deployments-container.loader": "Loading content...",
 
   "deployments-empty-state.missing-config-object": "The config object is empty and this is unexpected",
-  "deployments-empty-state.missing-config-variable.intro": "You did not set the Vercel API Token. Go to ",
-  "deployments-empty-state.missing-config-variable.link-text": "Plugin settings",
-  "deployments-empty-state.missing-config-variable.outro": " for more info",
+  "deployments-empty-state.missing-config-variable": "You did not set the Vercel API Token. Go to Plugin settings for more info",
+  "deployments-empty-state.missing-config-variable.link-text": "See plugin settings",
   "deployments-empty-state.missing-deployments": "There isn't any deployment in your account",
   "deployments-empty-state.error-deployments": "There was an error while fetching the deployments. Please, retry.",
   "deployments-empty-state.error-availability": "There was an error while fetching the features availability. Please, retry.",

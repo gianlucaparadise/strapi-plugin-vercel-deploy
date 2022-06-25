@@ -7,14 +7,15 @@
 import React, { memo } from "react";
 
 import { EmptyStateLayout } from "@strapi/design-system/EmptyStateLayout";
-import { Link } from "@strapi/design-system/Link";
+import { LinkButton } from "@strapi/design-system/LinkButton";
 import { Icon } from "@strapi/design-system/Icon";
 import EmptyDocuments from "@strapi/icons/EmptyDocuments";
 import EmptyPermissions from "@strapi/icons/EmptyPermissions";
 import ExclamationMarkCircle from "@strapi/icons/ExclamationMarkCircle";
 import EmotionUnhappy from "@strapi/icons/EmotionUnhappy";
+import ArrowRight from "@strapi/icons/ArrowRight";
 
-import FormattedMessage from "../FormattedMessage";
+import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
@@ -50,48 +51,30 @@ const getIcon = (listDeployAvailability) => {
 
 /**
  * @param {DeploymentsAvailability} listDeployAvailability
- * @returns {string|JSX.Element}
+ * @returns {string}
  */
-const getText = (listDeployAvailability) => {
+const getTextId = (listDeployAvailability) => {
   switch (listDeployAvailability) {
     case "MISSING_CONFIG_OBJECT":
-      return (
-        <FormattedMessage labelId="deployments-empty-state.missing-config-object" />
-      );
+      return "deployments-empty-state.missing-config-object";
 
     case "MISSING_CONFIG_VARIABLE":
-      return (
-        <>
-          <FormattedMessage labelId="deployments-empty-state.missing-config-variable.intro" />
-          <Link to="/settings/vercel-deploy">
-            <FormattedMessage labelId="deployments-empty-state.missing-config-variable.link-text" />
-          </Link>
-          <FormattedMessage labelId="deployments-empty-state.missing-config-variable.outro" />
-        </>
-      );
+      return "deployments-empty-state.missing-config-variable";
 
     case "MISSING_DEPLOYMENTS":
-      return (
-        <FormattedMessage labelId="deployments-empty-state.missing-deployments" />
-      );
+      return "deployments-empty-state.missing-deployments";
 
     case "ERROR_DEPLOYMENTS":
-      return (
-        <FormattedMessage labelId="deployments-empty-state.error-deployments" />
-      );
+      return "deployments-empty-state.error-deployments";
 
     case "ERROR_AVAILABILITY":
-      return (
-        <FormattedMessage labelId="deployments-empty-state.error-availability" />
-      );
+      return "deployments-empty-state.error-availability";
 
     case "ERROR_CONFIG":
-      return (
-        <FormattedMessage labelId="deployments-empty-state.error-config" />
-      );
+      return "deployments-empty-state.error-config";
 
     default:
-      return <FormattedMessage labelId="deployments-empty-state.default" />;
+      return "deployments-empty-state.default";
   }
 };
 
@@ -105,7 +88,25 @@ const DeploymentsEmptyState = ({ type }) => {
     return <></>;
   }
 
-  return <EmptyStateLayout icon={getIcon(type)} content={getText(type)} />;
+  const messageId = getTextId(type);
+  const message = useFormattedMessage(messageId);
+
+  const linkText = useFormattedMessage(
+    "deployments-empty-state.missing-config-variable.link-text"
+  );
+  const action = type === "MISSING_CONFIG_VARIABLE" && (
+    <LinkButton
+      variant={"secondary"}
+      startIcon={<ArrowRight />}
+      to="/settings/vercel-deploy"
+    >
+      {linkText}
+    </LinkButton>
+  );
+
+  return (
+    <EmptyStateLayout icon={getIcon(type)} content={message} action={action} />
+  );
 };
 
 export default memo(DeploymentsEmptyState);
