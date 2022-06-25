@@ -1,5 +1,6 @@
 /**
  * @typedef {import('../../../../types/typedefs').FeatureAvailability} FeatureAvailability
+ * @typedef {import('../../../../types/typedefs').ApiErrorType} ApiErrorType
  */
 
 /**
@@ -13,7 +14,7 @@
  * DeployButton propd
  * @typedef {Object} Props
  * @property {FeatureAvailability} runDeployAvailability Availability of the runDeploy feature
- * @property {boolean} hasAvailabilityError Has error while retrieving availability
+ * @property {ApiErrorType} availabilityApiError Has error while retrieving availability
  * @property {Deployed} onDeployed Callback to notify that it has completed the deploy
  */
 

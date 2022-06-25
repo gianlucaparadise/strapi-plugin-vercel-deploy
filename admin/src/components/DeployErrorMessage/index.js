@@ -41,6 +41,11 @@ const getMessage = (type) => {
         <FormattedMessage labelId="deploy-error-message.error-availability" />
       );
 
+    case "ERROR_FORBIDDEN":
+      return (
+        <FormattedMessage labelId="deploy-error-message.error-forbidden" />
+      );
+
     case "ERROR_DEPLOY":
       return <FormattedMessage labelId="deploy-error-message.error-deploy" />;
 

@@ -19,23 +19,33 @@ import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 /**
  * @typedef {import('./typedefs').Props} Props
  * @typedef {import('./typedefs').FeatureAvailability} FeatureAvailability
+ * @typedef {import('./typedefs').ApiErrorType} ApiErrorType
  * @typedef {import('../../components/DeployErrorMessage/typedefs').ErrorStateType} DeployErrorStateType
  */
 
 /**
  *
  * @param {boolean} hasDeployError
- * @param {boolean} hasAvailabilityError
+ * @param {ApiErrorType} availabilityApiError
  * @param {FeatureAvailability} runDeployAvailability
  * @returns {DeployErrorStateType}
  */
 const getDeployErrorState = (
   hasDeployError,
-  hasAvailabilityError,
+  availabilityApiError,
   runDeployAvailability
 ) => {
   if (hasDeployError) return "ERROR_DEPLOY";
-  if (hasAvailabilityError) return "ERROR_AVAILABILITY";
+  if (availabilityApiError) {
+    switch (availabilityApiError) {
+      case "FORBIDDEN":
+        return "ERROR_FORBIDDEN";
+
+      case "GENERIC_ERROR":
+      default:
+        return "ERROR_AVAILABILITY";
+    }
+  }
   return runDeployAvailability;
 };
 
@@ -45,7 +55,7 @@ const getDeployErrorState = (
  * @returns {JSX.Element}
  */
 const DeployButton = ({
-  hasAvailabilityError,
+  availabilityApiError,
   runDeployAvailability,
   onDeployed,
 }) => {
@@ -57,7 +67,7 @@ const DeployButton = ({
   const canDeploy = runDeployAvailability == "AVAILABLE";
   const deployErrorState = getDeployErrorState(
     hasDeployError,
-    hasAvailabilityError,
+    availabilityApiError,
     runDeployAvailability
   );
   const hasDeployedSuccessfully = deployErrorState === "AVAILABLE";

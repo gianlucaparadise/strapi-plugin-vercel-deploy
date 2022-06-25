@@ -8,6 +8,11 @@
  */
 
 /**
+ * Describe the availability of a feature
+ * @typedef {("GENERIC_ERROR"|"FORBIDDEN")} ApiErrorType
+ */
+
+/**
  * Plugin config
  * @typedef {Object} PluginConfig
  * @property {PluginConfigMap} data Plugin config root property

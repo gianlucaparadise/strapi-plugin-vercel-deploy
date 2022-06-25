@@ -4,7 +4,7 @@
 
 /**
  * Describe the type of error state to display
- * @typedef {(FeatureAvailability|"ERROR_AVAILABILITY"|"ERROR_DEPLOY")} ErrorStateType
+ * @typedef {(FeatureAvailability|"ERROR_AVAILABILITY"|"ERROR_DEPLOY"|"ERROR_FORBIDDEN")} ErrorStateType
  */
 
 /**

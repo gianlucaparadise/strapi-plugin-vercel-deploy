@@ -27,7 +27,7 @@ const HomePage = () => {
   const headerTitle = useFormattedMessage("home-page.header.title");
   const headerSubtitle = useFormattedMessage("home-page.header.subtitle");
 
-  const [isLoadingAvailability, availability, hasAvailabilityError] =
+  const [isLoadingAvailability, availability, apiError] =
     useDeployAvailability();
 
   const [useDeploymentsPolling, setUseDeploymentsPolling] = useState(false);
@@ -59,7 +59,7 @@ const HomePage = () => {
           }
           primaryAction={
             <DeployButton
-              hasAvailabilityError={hasAvailabilityError}
+              availabilityApiError={apiError}
               runDeployAvailability={availability?.runDeploy}
               onDeployed={onDeployed}
             />
