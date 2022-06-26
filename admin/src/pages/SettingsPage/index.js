@@ -26,6 +26,8 @@ import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('../../../../types/typedefs').PluginConfigMap} PluginConfigMap
+ * @typedef {import('../../../../types/typedefs').ApiErrorType} ApiErrorType
+ * @typedef {import('../../components/DeploymentsEmptyState/typedefs').EmptyStateType} EmptyStateType
  */
 
 const BoxField = ({ fieldName, fieldHint, children }) => {
@@ -62,7 +64,8 @@ const SettingsContainer = () => {
     "settings-page.settings-container.loader"
   );
 
-  const [hasError, setHasError] = useState(false);
+  /** @type {[ApiErrorType?, (error: ApiErrorType?) => void]} */
+  const [apiError, setApiError] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
   /** @type {PluginConfigMap} */
@@ -80,12 +83,16 @@ const SettingsContainer = () => {
           error
         );
         setPluginConfig({});
-        setHasError(true);
+        if (error && error.response && error.response.status === 403) {
+          setApiError("FORBIDDEN");
+        } else {
+          setApiError("GENERIC_ERROR");
+        }
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [setIsLoading, setPluginConfig]);
+  }, [setIsLoading, setPluginConfig, setApiError]);
 
   const deployHook = pluginConfig.deployHook || "";
   const apiToken = pluginConfig.apiToken ? `${pluginConfig.apiToken}[...]` : "";
@@ -100,10 +107,16 @@ const SettingsContainer = () => {
     );
   }
 
-  if (hasError) {
+  if (apiError) {
+    /** @type {EmptyStateType} */
+    const emptyStateType =
+      apiError === "FORBIDDEN"
+        ? "ERROR_AVAILABILITY_FORBIDDEN"
+        : "ERROR_CONFIG";
+
     return (
       <Box padding={8} background="neutral100">
-        <DeploymentsEmptyState type="ERROR_CONFIG" />
+        <DeploymentsEmptyState type={emptyStateType} />
       </Box>
     );
   }
