@@ -12,11 +12,12 @@ import { LoadingIndicatorPage } from "@strapi/helper-plugin";
 import { Link } from "@strapi/design-system/Link";
 import ArrowLeft from "@strapi/icons/ArrowLeft";
 
+import Notifications from "../../components/Notifications";
 import SymmetricBox from "../../components/SymmetricBox";
 import DeployButton from "../../components/DeployButton";
 import DeploymentsContainer from "../../components/DeploymentsContainer";
-import { useDeployAvailability } from "../../hooks/useDeployAvailability";
 import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
+import { useDeployAvailability } from "../../hooks/useDeployAvailability";
 import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
@@ -76,7 +77,7 @@ const HomePage = () => {
   };
 
   return (
-    <>
+    <Notifications>
       <Box background="neutral100">
         <BaseHeaderLayout
           navigationAction={
@@ -111,7 +112,7 @@ const HomePage = () => {
           />
         )}
       </SymmetricBox>
-    </>
+    </Notifications>
   );
 };
 
