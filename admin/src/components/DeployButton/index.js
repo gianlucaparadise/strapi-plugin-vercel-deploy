@@ -4,23 +4,25 @@
  *
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
+import { useNotification } from "@strapi/helper-plugin";
 import { Button } from "@strapi/design-system/Button";
 import { Loader } from "@strapi/design-system/Loader";
 import Plus from "@strapi/icons/Plus";
 
 import SymmetricBox from "../../components/SymmetricBox";
-import DeployErrorMessage from "../../components/DeployErrorMessage";
-import { runDeploy } from "../../utils/api";
 import FormattedMessage from "../FormattedMessage";
+import { getErrorNotification } from "./ErrorUtils";
+import { runDeploy } from "../../utils/api";
 import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
  * @typedef {import('./typedefs').FeatureAvailability} FeatureAvailability
  * @typedef {import('./typedefs').ApiErrorType} ApiErrorType
- * @typedef {import('../../components/DeployErrorMessage/typedefs').ErrorStateType} DeployErrorStateType
+ * @typedef {import('./typedefs').ErrorStateType} DeployErrorStateType
+ * @typedef {import('../../components/Notifications/typedefs').NotificationConfig} NotificationConfig
  */
 
 /**
@@ -59,6 +61,8 @@ const DeployButton = ({
   runDeployAvailability,
   onDeployed,
 }) => {
+  /** @type {(config: NotificationConfig) => void} */
+  const toggleNotification = useNotification();
   const labelLoader = useFormattedMessage("deploy-button.loader");
 
   const [isLoading, setIsLoading] = useState(false);
@@ -70,7 +74,14 @@ const DeployButton = ({
     availabilityApiError,
     runDeployAvailability
   );
-  const hasDeployedSuccessfully = deployErrorState === "AVAILABLE";
+
+  useEffect(() => {
+    const hasDeployedSuccessfully = deployErrorState === "AVAILABLE";
+    if (!hasDeployedSuccessfully) {
+      const notification = getErrorNotification(deployErrorState);
+      toggleNotification(notification);
+    }
+  }, [deployErrorState, toggleNotification, getErrorNotification]);
 
   const runDeployHandler = async () => {
     try {
@@ -92,11 +103,6 @@ const DeployButton = ({
       {isLoading && (
         <SymmetricBox paddingHorizontal={4}>
           <Loader small>{labelLoader}</Loader>
-        </SymmetricBox>
-      )}
-      {!hasDeployedSuccessfully && (
-        <SymmetricBox paddingHorizontal={1}>
-          <DeployErrorMessage type={deployErrorState} />
         </SymmetricBox>
       )}
       <SymmetricBox paddingHorizontal={4}>
