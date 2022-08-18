@@ -134,7 +134,7 @@ const DeploymentsList = ({ deployments, usePolling }) => {
                 }
               >
                 <LinkButton
-                  href={entry.url}
+                  href={`https://${entry.url}`}
                   variant="tertiary"
                   style={{ border: "none" }}
                 >
