@@ -3,6 +3,10 @@
   "version": "1.3.1",
   "description": "Strapi v4 plugin to trigger and monitor a deployment on Vercel",
   "repository": "https://github.com/gianlucaparadise/strapi-plugin-vercel-deploy.git",
+  "bugs": {
+    "url": "https://github.com/gianlucaparadise/strapi-plugin-vercel-deploy/issues"
+  },
+  "homepage": "https://github.com/gianlucaparadise/strapi-plugin-vercel-deploy#readme",
   "author": "gianlucaparadise <gianlucaparadise@gmail.com>",
   "license": "MIT",
   "strapi": {
@@ -21,13 +25,15 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=12.x.x <=16.x.x",
+    "node": ">=14.x.x <=18.x.x",
     "npm": ">=6.0.0"
   },
   "dependencies": {
-    "@strapi/strapi": "^4.1.9",
     "axios": "^0.26.1",
     "react-intl": "^5.25.1"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.5.3"
   },
   "keywords": [
     "strapi",
